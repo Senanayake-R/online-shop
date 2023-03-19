@@ -28,7 +28,7 @@ public class CheckoutServlet extends HttpServlet {
             RequestDispatcher rd = req.getRequestDispatcher("payment.html");
             rd.include(req, res);
             StoreUtil.setActiveTab(pw, "cart");
-            pw.println("Total Amount<span class=\"price\" style=\"color: black\"><b>&#8377; "
+            pw.println("Total Amount<span class=\"price\" style=\"color: black\"><b>LKR "
                     + req.getSession().getAttribute("amountToPay")
                     + "</b></span>");
 
