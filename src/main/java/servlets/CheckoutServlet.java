@@ -32,8 +32,18 @@ public class CheckoutServlet extends HttpServlet {
                     + req.getSession().getAttribute("amountToPay")
                     + "</b></span>");
 
-            pw.println("<input type=\"submit\" value=\"Pay & Place Order\" class=\"btn\">"
+            pw.println("<input type=\"submit\" value=\"Pay in Full & Place Order\" class=\"btn\">");
+            
+            double amountToPay = Double.parseDouble(req.getSession().getAttribute("amountToPay").toString());
+
+            if(amountToPay < 15000.00){
+                pw.println("<input type=\"submit\" value=\"Pay in Installment\" class=\"btn\">"
                     + "</form>");
+            }
+            else{
+                pw.println("<span style=\"color: red\">Install payments not available for payments greater than 15000</span><br><br>"
+                    + "</form>");
+            }
 
             pw.println("</div>\r\n"
                     + " </div>\r\n"
